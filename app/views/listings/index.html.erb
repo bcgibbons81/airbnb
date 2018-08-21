@@ -1,2 +1,28 @@
 <h1>Listings#index</h1>
 <p>Find me in app/views/listings/index.html.erb</p>
+
+<div class="container">
+<div class="row">
+<% @listings.each do |listing| %>
+    <div class="card col-lg-4">
+      <% if !listing.images.empty? %>
+        <img class="card-img-top" alt="Card image cap" src=<%=listing.images.first.thumb %> >
+      <% end %>
+      <div class="card-body">
+        <h3 class="card-title"><%= listing.title %></h3>
+  <p class="card-text "><%= listing.country %></p>
+        <p class="card-text "> <%= listing.description %></p>
+  <p class="card-text ">RM <%= listing.price %></p>
+      </div>
+      <a href="/listings/<%= listing.id  %>"> Show</a>
+    </div>
+ <% end %>
+ </div>
+</div>
+
+
+<%= paginate @listings %>
+
+<%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+
+

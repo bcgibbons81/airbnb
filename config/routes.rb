@@ -1,10 +1,24 @@
 Rails.application.routes.draw do
+
+  #require 'sidekiq/web'
+ #mount Sidekiq::Web => 'sidekiq'
+
+  
+  get 'braintree/new'
+  get 'welcome/index'
   root 'listings#index'
+  resources "listings" do
+    resources :reservations
+  end
 
-  get 'listings/index'
-  get 'listings/show'
+  root 'welcome#index'
 
-  resources :users, only: [:create] do
+  post 'braintree/checkout' 
+
+
+  get '/auth/:provider/callback', to: 'sessions#create_from_omniauth'
+
+  resources :users, only: [:create, :edit, :update, :destroy, :show] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]

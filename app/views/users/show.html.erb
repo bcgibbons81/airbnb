@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= full_name %></h1>
+
+<% @user.listings.each do |listing| %>
+	<h1><%= listing.title %></h1>
+	<a href="/listings/<%= listing.id %>">Go To Listing</a>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

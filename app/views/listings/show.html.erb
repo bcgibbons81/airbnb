@@ -1,2 +1,21 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
+
+<div class="container">
+<div class="row">
+
+<div class="card col-lg-8">
+    <div class="card-body">
+      <h3 class="card-title"><%= @listing.title %></h3>
+	  <p class="card-text "><%= @listing.country %></p>
+      <p class="card-text "> <%= @listing.description %></p>
+	  <p class="card-text ">RM <%= @listing.price %></p>
+
+    </div>
+    <a href="/listings/<%= @listing.id %>/edit">Edit</a>
+	<% @listing.images.each do |image| %>
+		 <%= image_tag image.url %>
+	<% end %>
+</div>
+
+<%= render "/reservations/form.html.erb" %>
+
+<%= link_to 'Back', listings_path %>

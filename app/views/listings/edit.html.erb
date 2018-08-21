@@ -1,0 +1,30 @@
+<p> edit me</p>
+
+<%= simple_form_for @listing, url: listing_path(@listing) do |f| %>
+<%= f.label :images %>
+  <%= f.file_field :images, multiple: true %>
+  <%= f.input :title %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :country %>
+  <%= f.input :postcode %>
+  <%= f.input :home_type %>
+  <%= f.input :room_type %>
+  <%= f.input :price %>
+  <%= f.input :max_guests %>
+  <%= f.input :beds %>
+  <%= f.input :baths %>
+  
+
+ 
+
+    <%= f.label :smoking %>
+    <%= f.check_box :tags, {:multiple => true}, "smoking", nil %>
+    
+    <%= f.label :pets %>
+    <%= f.check_box :tags, {:multiple => true}, "pets", nil %>
+  
+
+  <%= f.submit %>
+<% end %>

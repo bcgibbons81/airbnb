@@ -37,7 +37,19 @@ gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'popper_js', '~> 1.14', '>= 1.14.3'
 gem 'clearance', '~> 1.16', '>= 1.16.1'
-gem "figaro"
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'omniauth-google-oauth2', '~> 0.5.3'
+gem 'omniauth', '~> 1.8', '>= 1.8.1'
+gem 'simple_form', '~> 4.0', '>= 4.0.1'
+gem 'country_select', '~> 3.1', '>= 3.1.1'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'mini_magick', '~> 4.8'
+gem 'faker', '~> 1.9', '>= 1.9.1'
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'will_paginate', '~> 3.1.0'
+gem 'braintree'
+gem 'sidekiq', '~> 5.2', '>= 5.2.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -50,6 +62,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem "binding_of_caller"
+  gem 'letter_opener', '~> 1.6'
+
 end
 
 group :test do

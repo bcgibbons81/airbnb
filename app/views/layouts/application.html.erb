@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -28,6 +29,14 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown
         </a>
+        <% if signed_in? %>
+        <!-- if  image tag is !nik -->
+          <% if !current_user.avatar.url.nil? %>
+            <%= image_tag current_user.avatar.url, width: "50", height: "50" %>
+            <% end %>
+            <%else%>
+              Profile
+              <% end %>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
@@ -46,6 +55,10 @@
   </div>
 </nav>
 
+
+
+
+
 <% if signed_in? %>
       Signed in as: <%= current_user.email %>
       <%= button_to 'Sign out', sign_out_path, method: :delete %>
@@ -57,6 +70,9 @@
       <% flash.each do |key, value| %>
         <div class="flash <%= key %>"><%= value %></div>
       <% end %>
+    </div>
+
+    <div class="container">
     </div>
 
 
